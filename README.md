@@ -22,7 +22,7 @@ Copy this code
     {{ sendDM $embed }}
 ## Step 2
 Go to: **YAGPDB's control panel** > **moderation** *under “Tolls & Utilities”* > **Warnings** > **Warn DM**
-![Image of the end resault](https://i.ibb.co/bFwQkQ0/Screenshot.png)
+![Image of the end result](https://i.ibb.co/bFwQkQ0/Screenshot.png)
 You should end up here, **Make sure to save**
 ## Step 3
 Paste the code you copied
@@ -33,5 +33,5 @@ Under *Apply to the following commands* select *Warn*
 ## Step 6 
 Set auto delete **response** to **0** and click the check icon
  - [x] so it ends up looking like that
- ![End Resault](https://i.ibb.co/8PXvfvr/Screenshot.png)
+ ![End Result](https://i.ibb.co/8PXvfvr/Screenshot.png)
 It should look like that, **Make sure to save**
