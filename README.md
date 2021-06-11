@@ -13,7 +13,7 @@ Copy this code
     
     {{ sendMessage nil $embed }}
     
-      
+    
     
     {{/* If you don't want the bot to DM the person getting warned delete this and everything under it */}}
     
@@ -23,7 +23,7 @@ Copy this code
 ## Step 2
 Go to: **YAGPDB's control panel** > **moderation** *under “Tolls & Utilities”* > **Warnings** > **Warn DM**
 ![Image of the end result](https://i.ibb.co/bFwQkQ0/Screenshot.png)
-You should end up here, **Make sure to save**
+You should end up here *code might look different*, **Make sure to save**
 ## Step 3
 Paste the code you copied
 ## Step 4
