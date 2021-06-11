@@ -1,1 +1,6 @@
+{{ $embed := cembed "description" (print "**Reason:** " .Reason) "author" (sdict "name" (print (toString .User.String) " has been warned") "icon_url" (.User.AvatarURL "256")) "color" 2960685}}
+{{ sendMessage nil $embed }}
 
+{{/* If you don't want the bot to DM the person getting warned delete this and everything under it */}}
+
+{{ sendDM $embed }}
