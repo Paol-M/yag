@@ -1,2 +1,2 @@
-# yag
+# YAGPDB
 Unofficial YAGPDB custom commands.
