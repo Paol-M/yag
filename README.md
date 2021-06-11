@@ -35,3 +35,7 @@ Set auto delete **response** to **0** and click the check icon
  - [x] so it ends up looking like that
  ![End Result](https://i.ibb.co/8PXvfvr/Screenshot.png)
 It should look like that, **Make sure to save**
+
+# You Should be done!
+If it's not working check the YouTube videos listed at the beginning and feel free to DM me on discord
+> Paol#7272 
