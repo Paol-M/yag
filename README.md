@@ -4,7 +4,7 @@ Result
 
 ## You can follow this tutorial on YouTube
 
-*coming soon*
+[How to embed warn in YAGPDB](https://youtu.be/2LxMwg7fxl8)
 
 ## Step 1
 Copy this code
