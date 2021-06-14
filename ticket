@@ -1,0 +1,97 @@
+{{/* Change values here */}}
+
+{{$Ticket_Catagory:=847892752716267550 }} {{/*Catagory in which tickets created are in. USE THE SAME AS THE ONE IN TICKET SYSTEM*/}}
+{{$Making_Ticket_Channel:= 847903188594065428 }}
+{{$Making_Ticket_Message:= 848602989900202035 }}
+{{$Making_Ticket_Emoji:= "🎫"}}
+{{$Solving_Ticket_Emoji:="📌"}}
+{{$ao_Emoji:="🛡️"}}
+
+{{/* Solving the ticket Embed */}}
+    {{$st1 := print "Now the mod " .User.Mention " is solving this ticket!"}}
+    {{$st2 := print "Looks like the mod " .User.Mention " could not solve your problem.\nDon't worry! Another staff member is coming to help you ASAP!"}}    
+{{/* Admin Only Embed */}}
+    {{$ao1 := cembed "description" (print $ao_Emoji " This ticket is now in Admin Only mode") "color" 1752220}}
+    {{$ao2 := cembed "description" "This ticket is no longer in Admin Only mode" "color" 1752220}}
+
+{{/* Code */}}
+{{$IS_Admin:=false}}
+{{if in (slice (exec "viewperms") (add 25 (len .User.Username))) `Administrator`}}
+    {{$IS_Admin =true}}
+{{end}}
+
+{{$IS_Mod:=false}}
+{{if in (slice (exec "viewperms") (add 25 (len .User.Username))) `ManageMessages`}}
+    {{$IS_Mod =true}}
+{{end}}
+
+{{/*Open Ticket*/}}
+{{if eq .Channel.ID $Making_Ticket_Channel}}
+    {{if .ReactionAdded}}
+        {{if eq .Reaction.Emoji.Name $Making_Ticket_Emoji}}
+            {{exec "ticket open ticket"}}
+            {{deleteMessageReaction nil $Making_Ticket_Message .User.ID $Making_Ticket_Emoji}}
+            {{deleteResponse 7}}
+        {{end}}
+    {{end}}
+{{end}}
+
+{{/* In ticket reactions */}}
+{{if eq .Channel.ParentID $Ticket_Catagory}}
+
+{{/* Close Ticket */}}
+{{if .ReactionAdded}}
+    {{if eq .Reaction.Emoji.Name "🔒"}}
+        {{deleteMessageReaction nil .ReactionMessage.ID .User.ID "🔒"}}
+        {{addReactions "❎" "✅"}}
+    {{end}}
+
+    {{if eq .Reaction.Emoji.Name "✅"}}
+        {{exec "ticket close"}}
+    {{end}}
+
+    {{if eq .Reaction.Emoji.Name "❎"}}
+        {{deleteMessageReaction nil .ReactionMessage.ID .User.ID "✅" "❎"}}
+        {{deleteMessageReaction nil .ReactionMessage.ID 204255221017214977 "✅" "❎"}}
+    {{end}}
+{{end}}
+
+{{/* Admin Only Ticket */}}
+{{if eq .Reaction.Emoji.Name $ao_Emoji}}  
+    {{if $IS_Admin}}
+        {{$s := exec "ticket ao"}}
+        {{if .ReactionAdded}}
+            {{sendMessage nil $ao1}}
+        {{else}}
+            {{sendMessage nil $ao2}}
+        {{end}}
+    {{else}}
+        {{deleteMessageReaction nil .ReactionMessage.ID .User.ID $ao_Emoji}}
+    {{end}}
+{{end}}
+
+{{/* SOLVING TICKET */}}
+{{if eq .Reaction.Emoji.Name $Solving_Ticket_Emoji}}
+    {{if or ($IS_Mod) ($IS_Admin)}}
+        {{if .ReactionAdded}}
+            {{sendMessage nil (cembed "description" $st1 "color" 1752220)}}
+        {{else}}
+            {{sendMessage nil (cembed "description" $st2 "color" 1752220)}}
+        {{end}}
+    {{else}}
+    {{deleteMessageReaction nil .ReactionMessage.ID .User.ID $Solving_Ticket_Emoji}}
+    {{end}}
+{{end}}
+{{/* End For the Catagory ID */}}
+{{end}}
+
+{{/* This comment and everything under it can be delted */}}
+{{addMessageReactions $Making_Ticket_Channel $Making_Ticket_Message $Making_Ticket_Emoji}}
+
+
+
+{{$content := print "Welcome " .User.Mention ", a staff member will be here shortly."}}
+{{$descr := print "Thank you " .User.Mention " for reaching to our Staff Team! While you wait, please explain your issue so that we can help you.\n\nAn available mod will use the 📌 icon to assign the ticket to them self.\n\nClick on 🔒 to close the ticket."}}
+{{$embed := cembed "color" 9911749 "description" $descr}}
+{{$id := sendMessageNoEscapeRetID nil (complexMessage "content" $content "embed" $embed)}}
+{{addMessageReactions nil $id "🔒" "📌" "🛡️"}}
