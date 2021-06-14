@@ -1,0 +1,5 @@
+{{$content := print "Welcome " .User.Mention ", a staff member will be here shortly."}}
+{{$descr := print "Thank you " .User.Mention " for reaching to our Staff Team! While you wait, please explain your issue so that we can help you.\n\nAn available mod will use the 📌 icon to assign the ticket to them self.\n\nClick on 🔒 to close the ticket."}}
+{{$embed := cembed "color" 15218176 "description" $descr}}
+{{$id := sendMessageNoEscapeRetID nil (complexMessage "content" $content "embed" $embed)}}
+{{addMessageReactions nil $id "🔒" "📌" "🛡️"}}
