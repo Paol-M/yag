@@ -1,8 +1,8 @@
 {{/* Change values here */}}
 
-{{$Ticket_Catagory:=847892752716267550 }} {{/*Catagory in which tickets created are in. USE THE SAME AS THE ONE IN TICKET SYSTEM*/}}
-{{$Making_Ticket_Channel:= 847903188594065428 }}
-{{$Making_Ticket_Message:= 848602989900202035 }}
+{{$Ticket_Catagory:= 123456789012345678 }} {{/*Catagory in which tickets created are in. USE THE SAME AS THE ONE IN TICKET SYSTEM*/}}
+{{$Making_Ticket_Channel:= 123456789012345678 }}
+{{$Making_Ticket_Message:= 123456789012345678 }}
 {{$Making_Ticket_Emoji:= "🎫"}}
 {{$Solving_Ticket_Emoji:="📌"}}
 {{$ao_Emoji:="🛡️"}}
@@ -87,11 +87,3 @@
 
 {{/* This comment and everything under it can be delted */}}
 {{addMessageReactions $Making_Ticket_Channel $Making_Ticket_Message $Making_Ticket_Emoji}}
-
-
-
-{{$content := print "Welcome " .User.Mention ", a staff member will be here shortly."}}
-{{$descr := print "Thank you " .User.Mention " for reaching to our Staff Team! While you wait, please explain your issue so that we can help you.\n\nAn available mod will use the 📌 icon to assign the ticket to them self.\n\nClick on 🔒 to close the ticket."}}
-{{$embed := cembed "color" 9911749 "description" $descr}}
-{{$id := sendMessageNoEscapeRetID nil (complexMessage "content" $content "embed" $embed)}}
-{{addMessageReactions nil $id "🔒" "📌" "🛡️"}}
