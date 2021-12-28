@@ -32,10 +32,10 @@ Go to: **Command Settings** > **New command override** *at the bottom of the pag
 Under *Apply to the following commands* select *Warn* 
 ## Step 6 
 Set auto delete **response** to **0** and click the check icon
- - [x] so it ends up looking like that
- ![End Result](https://i.ibb.co/8PXvfvr/Screenshot.png)
-It should look like that, **Make sure to save**
+so it ends up looking like that
+ - [x] 0
+![End Result](https://i.ibb.co/8PXvfvr/Screenshot.png)
+It should look like that, **make sure you save**
 
 # You Should be done!
-If it's not working check the YouTube videos listed at the beginning and feel free to DM me on discord
-> Paol#7272 
+If it's not working you can check the YouTube video listed above and feel free to DM me on discord [paol#7272](https://discordapp.com/users/573589702368821259)
