@@ -12,4 +12,4 @@ Result
 ## Tickets
 Similar to [ticket tool](https://tickettool.xyz), but more customizable.
 ### Apply
-[YouTube tutorial (tts)](https://www.youtube.com/watch?v=GRXSzDMfm-E) | Read me tutorial not available yet.
+[YouTube tutorial (tts)](https://www.youtube.com/watch?v=GRXSzDMfm-E) | Readme tutorial not available yet.
