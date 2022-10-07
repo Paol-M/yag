@@ -1,8 +1,8 @@
-##Trigger
+## Trigger
 ``` 
 .*
 ```
-##Command
+## Command
 ```go
 {{ if eq .Message.ID .Channel.ID}}
  	{{addReactions "❎" "✅"}}
