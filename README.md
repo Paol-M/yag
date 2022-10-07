@@ -1,7 +1,7 @@
 ## Thread suggestions
 Makes YAG' react only to first message in thread (the post).
 
-Resault
+Result
 ![Image shows discord, notably there's a thread post with x and check reactions, an embed by YAG saying "Thank you, paol. Suggestion help improve this Discord server.](./.imgs/Thread%20demo.webp)
 ### Apply
 [GitHub readme](./Thread%20suggestions/README.md)
